@@ -23,6 +23,7 @@ model User {
   email   String @unique
 
   entries JournalEntry[]
+  
 }
 
 model JournalEntry {
@@ -36,7 +37,7 @@ model JournalEntry {
 
   analysis Analysis?
 
-  @@index([userId])
+  @@unique([userId, id])
 }
 
 model Analysis {

@@ -1,4 +1,4 @@
-const EntryCard = ({ entry }) => {
+const EntryCard = ({ entry }: { entry: any }) => {
   const date = new Date(entry.createdAt).toDateString()
   return (
     <div className="divide-y divide-gray-200 overflow-hidden rounded-lg bg-blue-500/20 shadow-md">
