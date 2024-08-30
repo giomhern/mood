@@ -1,10 +1,10 @@
 const EntryCard = ({ entry }: { entry: any }) => {
   const date = new Date(entry.createdAt).toDateString()
   return (
-    <div className="divide-y divide-gray-200 overflow-hidden rounded-lg bg-blue-500/20 shadow-md">
-      <div className="px-4 py-5 ">{date}</div>
-      <div className="px-4 py-5">summary</div>
-      <div className="px-4 py-4 ">mood</div>
+    <div className="p-5 text-white bg-black rounded-md shadow-md hover:bg-black/80">
+      <div className="text-sm text-gray-300 lowercase" >{date}</div>
+      <div className="">summary</div>
+      <div className="">mood</div>
     </div>
   )
 }

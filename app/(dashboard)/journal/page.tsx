@@ -1,5 +1,5 @@
 import EntryCard from "@/components/EntryCard"
-import NewEntryCard from "@/components/NewEntryCard"
+import NewEntryButton from "@/components/NewEntryButton"
 import { getUserFromClerkId } from "@/utils/auth"
 import { prisma } from "@/utils/db"
 import Link from "next/link"
@@ -24,11 +24,13 @@ const JournalPage = async () => {
   console.log(entries)
   return (
     <div className="p-10">
-      <h2 className="text-4xl font-medium mb-2">Journal</h2>
+      <div className="flex justify-between pb-5">
+        <h2 className="text-3xl font-semibold">journal</h2>
+        <NewEntryButton />
+      </div>
       <div className="grid grid-cols-4 gap-4">
-        <NewEntryCard />
         {entries.map((entry) => (
-          <Link href={`/journal/${entry.id}`} >
+          <Link href={`/journal/${entry.id}`}>
             <EntryCard key={entry.id} entry={entry} />
           </Link>
         ))}

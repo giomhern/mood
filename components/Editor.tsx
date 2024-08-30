@@ -16,13 +16,14 @@ const Editor = ({ entry }: { entry: any }) => {
     },
   })
   return (
-    <div className="w-full h-full">
-      {isSaving && <div>...it's saving right now</div>}
+    <div className="w-full h-full p-10">
+      <h3 className="pb-5 text-3xl font-semibold">your entry</h3>
       <textarea
-        className="w-full h-full p-8 text-xl outline-none"
+        className="w-full p-5 border rounded-md outline-none border-black/20 h-1/2 font-regular text-md"
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
+      {isSaving && <div>...it's saving right now</div>}
     </div>
   )
 }
