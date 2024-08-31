@@ -1,19 +1,48 @@
+import { analyze } from "@/utils/ai"
 import { getUserFromClerkId } from "@/utils/auth"
 import { prisma } from "@/utils/db"
 import { revalidatePath } from "next/cache"
 import { NextResponse } from "next/server"
 
 export const POST = async () => {
-  const user = await getUserFromClerkId()
+  try {
+    const user = await getUserFromClerkId()
 
-  const entry = await prisma.journalEntry.create({
-    data: {
-      userId: user.id,
-      content: "Write about your day!",
-    },
-  })
+    if (!user) {
+      return NextResponse.json({ error: "User not found" }, { status: 404 })
+    }
 
-  revalidatePath("/journal")
+    const entry = await prisma.journalEntry.create({
+      data: {
+        userId: user.id,
+        content: "Write about your day!",
+      },
+    })
 
-  return NextResponse.json({ data: entry })
+    console.log(entry.content)
+
+    const analysis = await analyze(entry.content)
+    console.log(analysis.color)
+
+    if (!analysis) {
+      return NextResponse.json({ error: "Analysis failed" }, { status: 500 })
+    }
+
+    await prisma.analysis.create({
+      data: {
+        entryId: entry.id,
+        ...analysis,
+      },
+    })
+
+    revalidatePath("/journal")
+
+    return NextResponse.json({ data: entry })
+  } catch (error) {
+    console.error("Error in POST handler:", error)
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 }
+    )
+  }
 }

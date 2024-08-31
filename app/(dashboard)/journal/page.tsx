@@ -17,8 +17,6 @@ const getEntries = async () => {
     },
   })
 
-  await analyze(`Today was pretty much the same as any other day, nothing too exciting but not boring either. I woke up to the sunlight sneaking through my curtains, and it felt like just another day on autopilot. School was fine—no big drama, no surprising moments, just the usual stuff. I hung out with my friends during lunch, talked about random things, and then headed home. It’s like everything is just going along, not really changing, just steady. Sometimes I wonder if I should be doing something more, but then again, maybe it's okay to have days like this, where nothing really stands out.`);
-
   return entries
 }
 

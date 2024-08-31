@@ -1,4 +1,6 @@
 import { ChatGoogleGenerativeAI } from "@langchain/google-genai"
+import { StructuredOutputParser } from "@langchain/core/output_parsers"
+import { ChatPromptTemplate } from "@langchain/core/prompts"; 
 import z from "zod"
 
 const schema = z.object({
@@ -17,19 +19,29 @@ const schema = z.object({
     ),
 })
 
-export const analyze = async (entry: any) => {
-
+export const analyze = async (entry: string) => {
   const model = new ChatGoogleGenerativeAI({
     temperature: 0,
     model: "gemini-1.0-pro",
   })
+  const prompt = ChatPromptTemplate.fromMessages([
+    [
+      "system",
+      "Analyze the following journal entry. Follow the instructions and format your response to match the format instructions, no matter what! \n{format_instructions}\n{input}",
+    ],
+    ["human", "{input}"],
+  ]); 
 
-  const structuredModel = model.withStructuredOutput(schema)
 
-  const res = await structuredModel.invoke(
-    `Analyze the following journal entry. Make sure to make the summary 2-3 sentences in length only. \n${entry}`
-  );
+  const parser = StructuredOutputParser.fromZodSchema(schema);
+  const formatInstructions = parser.getFormatInstructions()
+  const chain = prompt.pipe(model)
+  const res = await chain.invoke({
+    format_instructions: formatInstructions, 
+    input: entry, 
+  })
 
-  console.log(res)
-  return res
+  const parsedRes = await parser.parse(String(res.content))
+
+  return parsedRes;
 }
