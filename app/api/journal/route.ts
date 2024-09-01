@@ -22,8 +22,6 @@ export const POST = async () => {
     console.log(entry.content)
 
     const analysis = await analyze(entry.content)
-    console.log(analysis.color)
-
     if (!analysis) {
       return NextResponse.json({ error: "Analysis failed" }, { status: 500 })
     }

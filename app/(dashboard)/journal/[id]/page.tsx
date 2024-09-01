@@ -18,26 +18,39 @@ const getEntry = async ({ id }: { id: any }) => {
         id: id, // Ensure id is properly referenced
       },
     },
+    include: {
+      analysis: true,
+    },
   })
 
   return entry
 }
-
-const analysisData = [
-  {
-    name: "Subject",
-    value: "Value",
-    summary: "Summary",
-    mood: "Mood",
-    negative: "negative",
-  },
-]
 
 const EntryPage = async ({ params }: { params: any }) => {
   // Destructure id from params
   const { id } = params
 
   const entry = await getEntry({ id })
+  const { mood, summary, color, negative, subject } = entry?.analysis
+
+  const analysisData = [
+    {
+      name: "Summary",
+      value: summary,
+    },
+    {
+      name: "Mood",
+      value: mood,
+    },
+    {
+      name: "Negative",
+      value: negative ? "true" : "false",
+    },
+    {
+      name: "Subject",
+      value: subject,
+    },
+  ]
 
   return (
     <div className="grid w-full h-full grid-cols-3">
@@ -45,19 +58,17 @@ const EntryPage = async ({ params }: { params: any }) => {
         <Editor entry={entry} />
       </div>
 
-      <div className="px-5 py-10 border-l border-black/20">
+      <div className={`px-5 py-10 border-l border-black/20 bg-[${color}] bg-opacity-15`}>
         <h2 className="pb-5 text-3xl font-medium lowercase">Analysis</h2>
         <div>
           <ul>
-            {analysisData.map((item, idx) => {
-              return (
-                <li key={idx} className="flex items-center justify-between">
-                  <span>{item.name}</span>
-                  <span>{item.value}</span>
-                  <span>{item.summary}</span>
-                </li>
-              )
-            })}
+            {analysisData.map((i) => (
+              <li key={i.name}>
+                <div>
+                  {i.name}: {i.value}
+                </div>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

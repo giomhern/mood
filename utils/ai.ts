@@ -27,7 +27,7 @@ export const analyze = async (entry: string) => {
   const prompt = ChatPromptTemplate.fromMessages([
     [
       "system",
-      "Analyze the following journal entry. Follow the instructions and format your response to match the format instructions, no matter what! \n{format_instructions}\n{input}",
+      "Analyze the following journal entry. Make sure to keep the summary from 1-3 sentences max. Follow the instructions and format your response to match the format instructions, no matter what! \n{format_instructions}\n{input}",
     ],
     ["human", "{input}"],
   ]); 
