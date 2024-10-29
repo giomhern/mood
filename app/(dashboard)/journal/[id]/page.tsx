@@ -26,7 +26,8 @@ const getEntry = async ({ id }: { id: any }) => {
   return entry
 }
 
-const EntryPage = async ({ params }: { params: any }) => {
+const EntryPage = async (props: { params: Promise<any> }) => {
+  const params = await props.params;
   // Destructure id from params
   const { id } = params
 
