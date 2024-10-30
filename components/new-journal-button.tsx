@@ -14,10 +14,10 @@ const NewEntryButton = () => {
   }
   return (
     <button
-      className="px-4 py-2 text-sm font-medium text-white lowercase bg-black rounded-md hover:bg-black/60"
+      className="px-4 py-2 text-xs font-medium text-black bg-white rounded-[7px] hover:bg-black/60"
       onClick={handleOnClick}
     >
-      Create entry
+      Create your own
     </button>
   )
 }

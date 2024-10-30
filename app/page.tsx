@@ -1,6 +1,6 @@
 import { auth } from "@clerk/nextjs/server"
 import { merriweather } from "@/utils/fonts"
-import AuthButton from "@/components/AuthButton"
+import AuthButton from "@/components/auth-button"
 import Link from "next/link"
 export default async function Home() {
   const { userId } = await auth()

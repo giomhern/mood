@@ -18,7 +18,17 @@ module.exports = {
   			lightgray: '#7C7C7C',
   			white: '#fff',
   			sidebarbg: '#1F1F1F',
-  			layoutbg: '2F2F2F',
+  			border: '#2F2F2F',
+  			sidebar: {
+  				DEFAULT: '#1F1F1F',
+  				foreground: '#fff',
+  				primary: 'hsl(var(--sidebar-primary))',
+  				'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
+  				accent: 'hsl(var(--sidebar-accent))',
+  				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
+  				border: 'hsl(var(--sidebar-border))',
+  				ring: 'hsl(var(--sidebar-ring))'
+  			}
   		}
   	}
   },
