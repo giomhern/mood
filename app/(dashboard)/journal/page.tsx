@@ -26,7 +26,7 @@ const getEntries = async () => {
 const JournalPage = async () => {
   const entries = await getEntries()
   return (
-    <div className="bg-[#1F1F1F] min-h-screen flex flex-col text-white">
+    <div className="bg-[#1F1F1F] min-h-full flex flex-col text-white">
       <div className="border-gray-700 border-b py-3 px-5 h-14 flex justify-between items-center">
         <div className="flex gap-3 items-center justify-center">
         <SidebarTrigger />

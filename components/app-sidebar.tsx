@@ -40,7 +40,7 @@ const items = [
 export function AppSidebar() {
   return (
     <Sidebar className="border-r-gray-700">
-      <SidebarHeader className="h-14 w-full border-b border-b-gray-700 flex flex-row p-3 items-center justify-start gap-3">
+      <SidebarHeader className="h-14 w-full border-b border-b-gray-700 flex flex-row py-3 px-4 items-center justify-start gap-3">
         <UserButton />
         <p className="font-medium">Hello, Gio</p>
       </SidebarHeader>
