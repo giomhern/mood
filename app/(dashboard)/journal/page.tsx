@@ -1,12 +1,9 @@
 import EmptyJournalView from "@/components/empty-journal-view"
-import EntryCard from "@/components/entry-card"
 import NewEntryButton from "@/components/new-journal-button"
-import { analyze } from "@/utils/ai"
 import { getUserFromClerkId } from "@/utils/auth"
 import { prisma } from "@/utils/db"
-import { merriweather } from "@/utils/fonts"
-import Link from "next/link"
 import { SidebarTrigger } from "@/components/ui/sidebar"
+import JournalEntries from "@/components/journal-entries"
 
 const getEntries = async () => {
   const user = await getUserFromClerkId()
@@ -36,7 +33,7 @@ const JournalPage = async () => {
       </div>
       <div className="flex-grow flex items-center justify-center">
         {entries.length > 0 ? (
-          <EmptyJournalView />
+          <JournalEntries entries={entries} />
         ) : (
           <EmptyJournalView />
         )}
