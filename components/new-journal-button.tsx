@@ -13,7 +13,7 @@ const NewEntryButton = () => {
   }
   return (
     <button
-      className="px-4 py-2 text-xs font-medium text-black bg-white rounded-[7px] hover:bg-lightgray"
+      className="px-4 py-2 text-xs font-medium text-black bg-white rounded-[7px] hover:bg-hover"
       onClick={handleOnClick}
     >
       Create your own

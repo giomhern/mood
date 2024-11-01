@@ -14,7 +14,7 @@ export default async function Home() {
           Sign in or create <br /> new account
         </h1>
 
-        <div className="grid md:grid-cols-3 gap-5">
+        <div className="gap-3 px-16 grid md:px-0 md:grid-cols-3">
           <Link href={href}>
           <AuthButton provider="Google" />
           </Link>
@@ -22,7 +22,7 @@ export default async function Home() {
           <AuthButton provider="Microsoft" />
         </div>
 
-        <p className="text-lightgray text-sm text-center">
+        <p className="text-lightgray px-16 text-xs md:text-sm text-center">
           By continuing, you agree to our Terms of Service, Privacy Policy and
           Data Protection Agreement
         </p>

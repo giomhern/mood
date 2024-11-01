@@ -33,7 +33,7 @@ const JournalPage = async () => {
       </div>
       <div className="flex-grow flex items-center justify-center">
         {entries.length > 0 ? (
-          <JournalEntries entries={entries} />
+          <EmptyJournalView />
         ) : (
           <EmptyJournalView />
         )}

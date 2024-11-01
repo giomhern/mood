@@ -19,6 +19,7 @@ module.exports = {
   			white: '#fff',
   			sidebarbg: '#1F1F1F',
   			border: '#2F2F2F',
+			hover: "#ededed", 
   			sidebar: {
   				DEFAULT: '#1F1F1F',
   				foreground: '#fff',
