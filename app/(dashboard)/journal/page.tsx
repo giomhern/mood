@@ -29,7 +29,7 @@ const JournalPage = async () => {
         <SidebarTrigger />
         <h1 className="font-medium">Home</h1>
         </div>
-        <NewEntryButton />
+        {/* <NewEntryButton /> */}
       </div>
       <div className="flex-grow flex items-center justify-center">
         {entries.length > 0 ? (

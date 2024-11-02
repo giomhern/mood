@@ -1,6 +1,4 @@
 "use client"
-import { SidebarTrigger } from "@/components/ui/sidebar"
-import NewEntryButton from "@/components/new-journal-button"
 import { ChevronLeft } from "lucide-react"
 import { useRouter } from "next/navigation"
 
@@ -20,7 +18,6 @@ const CreateJournalEntry = () => {
           </button>
           <h1 className="font-medium">Create new entry</h1>
         </div>
-        <NewEntryButton />
       </div>
     </div>
   )

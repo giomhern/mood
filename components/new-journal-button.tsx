@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation"
 
 const NewEntryButton = () => {
   const router = useRouter()
-  const handleOnClick = async () => {
+  const handleOnClick = () => {
     try {
       router.push(`/journal/create-entry`)
     } catch (e) {
@@ -16,7 +16,7 @@ const NewEntryButton = () => {
       className="px-4 py-2 text-xs font-medium text-black bg-white rounded-[7px] hover:bg-hover"
       onClick={handleOnClick}
     >
-      Create your own
+      Create yours
     </button>
   )
 }
