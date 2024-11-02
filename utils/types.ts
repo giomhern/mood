@@ -11,7 +11,7 @@ export type JournalEntryFormProps = {
     placeholder: string;
     name: ValidFieldNames;
     register: UseFormRegister<JournalEntryData>;
-    error: FieldError | undefined;
+    // error: FieldError | undefined;
     valueAsNumber?: boolean;
 }
 

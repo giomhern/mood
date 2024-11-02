@@ -1,4 +1,5 @@
 "use client"
+import NewJournalForm from "@/components/new-journal-form"
 import { ChevronLeft } from "lucide-react"
 import { useRouter } from "next/navigation"
 
@@ -19,6 +20,8 @@ const CreateJournalEntry = () => {
           <h1 className="font-medium">Create new entry</h1>
         </div>
       </div>
+
+      <NewJournalForm />
     </div>
   )
 }
