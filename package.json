@@ -48,6 +48,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@hookform/resolvers": "^3.9.1",
     "prisma": "^5.17.0"
   }
 }

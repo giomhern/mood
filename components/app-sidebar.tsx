@@ -1,4 +1,4 @@
-import { Calendar, HelpCircleIcon, Home, Inbox, Search, Settings } from "lucide-react"
+import { BookHeart, Calendar, HelpCircleIcon, Home, Inbox, LayoutDashboard, Notebook, Search, Settings } from "lucide-react"
 
 import {
   Sidebar,
@@ -32,6 +32,25 @@ const items = [
   },
 ]
 
+
+const journalStuff = [
+  {
+    title: "All Entries", 
+    url: "", 
+    icon: Notebook, 
+  },
+  {
+    title: "Favorites", 
+    url: "", 
+    icon: BookHeart, 
+  }, 
+  {
+    title: "Metrics", 
+    url: "", 
+    icon: LayoutDashboard, 
+  }
+]
+
 export function AppSidebar() {
   return (
     <Sidebar className="border-r-gray-700">
@@ -60,7 +79,7 @@ export function AppSidebar() {
         <SidebarGroupLabel>Journal Entries</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {items.map((item) => (
+              {journalStuff.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                     <a href={item.url}>
