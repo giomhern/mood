@@ -36,17 +36,17 @@ const items = [
 const journalStuff = [
   {
     title: "All Entries", 
-    url: "", 
+    url: "/journal/all", 
     icon: Notebook, 
   },
   {
     title: "Favorites", 
-    url: "", 
+    url: "/journal/favorites", 
     icon: BookHeart, 
   }, 
   {
     title: "Metrics", 
-    url: "", 
+    url: "/metrics", 
     icon: LayoutDashboard, 
   }
 ]
