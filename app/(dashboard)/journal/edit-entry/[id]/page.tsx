@@ -30,14 +30,14 @@ const EditEntry = async (props: { params: Promise<any> }) => {
   const params = await props.params
   const { id } = params
 
-  const entry = await getEntry({ id })
+    const entry = await getEntry({ id })
 
   return (
     <div className="bg-[#1F1F1F] min-h-full flex flex-col text-white">
       <div className="border-gray-700 border-b py-3 px-5 h-14 flex justify-between items-center">
         <div className="flex gap-3 items-center justify-center">
           <SidebarTrigger />
-          <h1 className="font-medium">Create new entry</h1>
+          <h1 className="font-medium">Edit entry</h1>
         </div>
       </div>
     </div>

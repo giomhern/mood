@@ -1,10 +1,9 @@
-import Editor from "@/components/editor"
 import { prisma } from "@/utils/db"
 import { getUserFromClerkId } from "@/utils/auth"
 import { SidebarTrigger } from "@/components/ui/sidebar"
-import NewJournalForm from "@/components/new-journal-form"
 import { merriweather } from "@/utils/fonts"
 import Link from "next/link"
+import DeleteButton from "@/components/delete-button"
 
 const getEntry = async ({ id }: { id: any }) => {
   const user = await getUserFromClerkId()
@@ -46,8 +45,14 @@ const EntryPage = async (props: { params: Promise<any> }) => {
           </h4>
         </div>
 
-        <div className="flex gap-3 items-center justify-center">
-          <Link href={`/edit-entry/${entry?.id}`} className="text-sm border border-white bg-white text-black px-3 py-2 rounded-lg font-medium">Edit entry</Link>
+        <div className="flex gap-2 items-center justify-center">
+          <Link
+            href={`/journal/edit-entry/${entry?.id}`}
+            className="text-sm border border-white bg-white text-black px-3 py-2 rounded-md font-medium"
+          >
+            Edit
+          </Link>
+          <DeleteButton id={id} />
         </div>
       </div>
 
