@@ -11,7 +11,6 @@ const CreateJournalEntry = () => {
           <h1 className="font-medium">Create new entry</h1>
         </div>
       </div>
-
       <NewJournalForm />
     </div>
   )

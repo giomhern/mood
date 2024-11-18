@@ -3,13 +3,14 @@ import { useRouter } from "next/navigation"
 
 const DeleteButton = ({ id }: { id: any }) => {
   const router = useRouter()
+
   const handleDelete = async () => {
     try {
       const response = await fetch(`/api/journal/${id}`, {
         method: "DELETE",
       })
       if (response.ok) {
-        router.push("/journal")
+        router.push("/journal/all")
       } else {
         console.error("Failed to delete entry")
       }

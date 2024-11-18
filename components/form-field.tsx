@@ -14,7 +14,7 @@ const FormField: React.FC<JournalEntryFormProps> = ({
         <textarea
           placeholder={placeholder}
           {...register(name, { valueAsNumber })}
-          className="px-5 py-3 text-sm h-64 w-full resize-none bg-[#1F1F1F] border border-[#2F2F2F] rounded-md focus:outline-none"
+          className="px-5 py-3 text-sm h-44 w-full resize-none bg-[#1F1F1F] border border-[#2F2F2F] rounded-md focus:outline-none"
         />
         {error && <span>{error.message}</span>}
       </>
